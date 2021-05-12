@@ -1,0 +1,14 @@
+from django.db import models
+from decks.models import Deck
+
+class Card(models.Model):
+    question = models.CharField(max_length=255)
+    answer = models.TextField()
+
+    deck = models.ForeignKey(
+        Deck, 
+        on_delete=models.CASCADE,
+        )
+
+    def __str__(self):
+        return self.question
